@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { createClient } from '@/lib/supabase'
+import { createClient } from '@/lib/supabase-server'
 
 export default function ContactPage() {
   const [form, setForm] = useState({ full_name: '', email: '', subject: 'General Inquiry', message: '' })
