@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-navy:  #0A0E1A;
+    --color-gold:  #D4A017;
+    --color-green: #1B5E20;
+    --color-red:   #C62828;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #0A0E1A;
+    color: #F5F0E8;
+  }
+}
+
+@layer components {
+  /* Kente strip */
+  .kente-strip {
+    height: 8px;
+    background: repeating-linear-gradient(
+      90deg,
+      #D4A017 0px,    #D4A017 12px,
+      #C62828 12px,   #C62828 24px,
+      #1B5E20 24px,   #1B5E20 36px,
+      #D4A017 36px,   #D4A017 48px,
+      #0A0E1A 48px,   #0A0E1A 60px
+    );
+    opacity: 0.9;
+  }
+
+  /* Buttons */
+  .btn-gold {
+    @apply bg-gold text-navy font-oswald font-semibold uppercase tracking-widest
+           px-8 py-4 text-sm transition-all hover:bg-yellow-400 cursor-pointer;
+  }
+  .btn-outline-gold {
+    @apply border-2 border-gold text-gold font-oswald font-semibold uppercase
+           tracking-widest px-8 py-4 text-sm transition-all
+           hover:bg-gold hover:text-navy cursor-pointer bg-transparent;
+  }
+  .btn-ghost {
+    @apply border border-gray-600 text-gray-400 font-oswald font-semibold uppercase
+           tracking-widest px-8 py-4 text-sm transition-all
+           hover:text-white hover:border-gray-400 cursor-pointer bg-transparent;
+  }
+
+  /* Section labels */
+  .section-label {
+    @apply text-gold text-xs font-semibold uppercase tracking-widest mb-3;
+  }
+  .section-title {
+    @apply font-oswald text-4xl md:text-5xl font-bold uppercase leading-none mb-6 text-white;
+  }
+  .section-title span { @apply text-gold; }
+
+  /* Cards */
+  .card-dark {
+    @apply bg-[#141929] border border-white/5;
+  }
+}
