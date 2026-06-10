@@ -1,4 +1,5 @@
 import { createServerSupabaseClient } from '@/lib/supabase-server'
+import Link from 'next/link'
 import type { NewsPost } from '@/types'
 
 export default async function NewsPage() {
@@ -16,7 +17,7 @@ export default async function NewsPage() {
         <h1 className="section-title">News & <span>Updates</span></h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
           {(news as NewsPost[])?.map((post) => (
-            <div key={post.id} className="card-dark overflow-hidden hover:-translate-y-1 transition-transform">
+            <Link key={post.id} href={`/news/${post.slug}`} className="card-dark overflow-hidden hover:-translate-y-1 transition-transform cursor-pointer">
               <div className="h-48 bg-gradient-to-br from-[#1B5E20] to-navy flex items-center justify-center relative overflow-hidden">
                 {post.cover_image_url
                   ? <img src={post.cover_image_url} alt={post.title} className="w-full h-full object-cover" />
@@ -31,7 +32,7 @@ export default async function NewsPage() {
                   {post.published_at ? new Date(post.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
